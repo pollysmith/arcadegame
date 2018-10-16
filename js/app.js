@@ -1,3 +1,24 @@
+//hero class
+    //constructor 
+        //properties
+            //x pos
+            //y pos
+            //sprite image
+
+        //methods
+            //update position
+                //check collision here
+                    //Did Player x and y collide with enemy?
+                //Check win here
+                    //Did Player x and y reach final tile?
+                //Render
+                    //Draw player sprite on current x and y coord position
+                //handle keyboard input
+                    //update player's x & y property according to input
+                //reset hero
+                    //set x and y to starting x and y
+
+
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -44,3 +65,9 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
+
+
+
+
