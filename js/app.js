@@ -9,6 +9,26 @@ class hero {
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+    /** 
+    * update hero's x and y property according to imput
+    * @param {string} input - Direction to travel
+    */
+    handleInput(input){
+        switch(input) {
+            case 'left':
+                this.x -= 100;
+                break;
+            case 'up':
+                this.y -= 100;
+                break;
+            case 'right':
+                this.x += 100;
+                break;
+            case 'down':
+                this.y += 100;
+                break;
+        }
+    }
 }
 const player = new hero();
 
