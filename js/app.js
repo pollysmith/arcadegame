@@ -1,9 +1,17 @@
 //hero class
-    //constructor 
-        //properties
-            //x pos
-            //y pos
-            //sprite image
+class hero {
+    constructor() {
+        this.x = 0;
+        this.y = 0;
+        this.sprite = 'images/char-boy.png';
+    }    
+    //draw hero sprite on current x and y coord pos
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+}
+const player = new hero();
+
 
         //methods
             //update position
@@ -24,6 +32,9 @@ var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
+    // x pos
+    // y pos
+
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -31,10 +42,17 @@ var Enemy = function() {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
+
 Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
+    // if enemy is not passed the boundary
+        //move forward
+        //increment x by speed * dt
+    // else
+        //reset pos to start
 };
 
 // Draw the enemy on the screen, required method for game
@@ -51,6 +69,9 @@ Enemy.prototype.render = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
+//New Hero object
+//init allEnemies array
+//for each enemy create and push new enemy object into above array
 
 
 // This listens for key presses and sends the keys to your
