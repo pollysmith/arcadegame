@@ -1,9 +1,13 @@
 //hero class
 class hero {
     constructor() {
-        this.x = 0;
-        this.y = 0;
         this.sprite = 'images/char-boy.png';
+        this.step = 101;
+        this.jump = 83;
+        this.startx = this.step * 2;
+        this.starty = (this.jump * 5) - 20;
+        this.x = this.startx;
+        this.y = this.starty;
     }    
     //draw hero sprite on current x and y coord pos
     render() {
@@ -16,16 +20,24 @@ class hero {
     handleInput(input){
         switch(input) {
             case 'left':
-                this.x -= 100;
+                if (this.x > 0) {
+                    this.x -= this.step;
+                }
                 break;
             case 'up':
-                this.y -= 100;
+                if (this.y > this.jump) {
+                this.y -= this.jump;
+                }
                 break;
             case 'right':
-                this.x += 100;
+                if (this.x < this.step * 4) {
+                this.x += this.step;
+                }
                 break;
             case 'down':
-                this.y += 100;
+                if (this.y <this.jump * 4) {
+                this.y += this.jump;
+                }
                 break;
         }
     }
