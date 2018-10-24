@@ -61,16 +61,18 @@ const player = new hero();
 
 // Enemies our player must avoid
 var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // x pos
-    // y pos
-
+    this.x = 0;
+    this.y = 0;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.step = 101;
 };
+
+
+const bug1 = new Enemy();
+const allEnemies = [];
+allEnemies.push(bug1);
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -81,8 +83,11 @@ Enemy.prototype.update = function(dt) {
     // all computers.
 
     // if enemy is not passed the boundary
+    if(this.x < this.step * 4) {
         //move forward
         //increment x by speed * dt
+        this.x += 20 * dt;
+    }
     // else
         //reset pos to start
 };
