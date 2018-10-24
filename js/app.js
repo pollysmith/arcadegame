@@ -5,7 +5,7 @@ class hero {
         this.step = 101;
         this.jump = 83;
         this.startx = this.step * 2;
-        this.starty = (this.jump * 5) - 20;
+        this.starty = (this.jump * 4) + 55;
         this.x = this.startx;
         this.y = this.starty;
     }    
@@ -41,22 +41,31 @@ class hero {
                 break;
         }
     }
+    update() {
+        //check collision here
+        for(let enemy of allEnemies) {
+            //Did Player x and y collide with enemy?
+            if (this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2)) {
+                this.reset();
+            }
+        }
+    }
+                    //Check win here
+                        //Did Player x and y reach final tile?
+                    //Render
+                        //Draw player sprite on current x and y coord position
+                    //handle keyboard input
+                        //update player's x & y property according to input
+    //reset hero
+    reset() {
+        this.y = this.starty;
+        this.x = this.startx;
+    }
+                        //set x and y to starting x and y    
 }
 const player = new hero();
-
-
         //methods
             //update position
-                //check collision here
-                    //Did Player x and y collide with enemy?
-                //Check win here
-                    //Did Player x and y reach final tile?
-                //Render
-                    //Draw player sprite on current x and y coord position
-                //handle keyboard input
-                    //update player's x & y property according to input
-                //reset hero
-                    //set x and y to starting x and y
 
 
 // Enemies our player must avoid
@@ -73,13 +82,13 @@ var Enemy = function(x,y, speed) {
 };
  
 
-const bug1 = new Enemy(-101, 0, 200);
-const bug2 = new Enemy(-101, 80, 300);
+const bug1 = new Enemy((-101*2.5), 0, 300);
+const bug2 = new Enemy(-101, 83, 300);
 const bug3 = new Enemy((-101*2.5), 83, 250);
-const bug4 = new Enemy((-101*2.5), 160, 300);
+const bug4 = new Enemy(-101, 166, 250);
 const allEnemies = [];
 allEnemies.push(bug1, bug2, bug3, bug4);
-console.log(allEnemies);
+console.log(bug4);
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
