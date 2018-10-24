@@ -60,11 +60,12 @@ const player = new hero();
 
 
 // Enemies our player must avoid
-var Enemy = function() {
-    this.x = 0;
-    this.y = 55;
+var Enemy = function(x,y, speed) {
+    this.x = x;
+    this.y = y + 55;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
+    this.speed = speed;
     this.sprite = 'images/enemy-bug.png';
     this.step = 101;
     this.boundary = this.step * 5;
@@ -72,9 +73,13 @@ var Enemy = function() {
 };
  
 
-const bug1 = new Enemy();
+const bug1 = new Enemy(-101, 0, 200);
+const bug2 = new Enemy(-101, 80, 300);
+const bug3 = new Enemy((-101*2.5), 83, 250);
+const bug4 = new Enemy((-101*2.5), 160, 300);
 const allEnemies = [];
-allEnemies.push(bug1);
+allEnemies.push(bug1, bug2, bug3, bug4);
+console.log(allEnemies);
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -88,7 +93,7 @@ Enemy.prototype.update = function(dt) {
     if(this.x < this.boundary) {
         //move forward
         //increment x by speed * dt
-        this.x += 200 * dt;
+        this.x += this.speed * dt;
     }
     else {
         this.x = this.resetPos;
