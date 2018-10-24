@@ -62,13 +62,15 @@ const player = new hero();
 // Enemies our player must avoid
 var Enemy = function() {
     this.x = 0;
-    this.y = 0;
+    this.y = 55;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.step = 101;
+    this.boundary = this.step * 5;
+    this.resetPos = -this.step;
 };
-
+ 
 
 const bug1 = new Enemy();
 const allEnemies = [];
@@ -83,12 +85,14 @@ Enemy.prototype.update = function(dt) {
     // all computers.
 
     // if enemy is not passed the boundary
-    if(this.x < this.step * 4) {
+    if(this.x < this.boundary) {
         //move forward
         //increment x by speed * dt
-        this.x += 20 * dt;
+        this.x += 200 * dt;
     }
-    // else
+    else {
+        this.x = this.resetPos;
+    }
         //reset pos to start
 };
 
