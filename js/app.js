@@ -8,6 +8,7 @@ class hero {
         this.starty = (this.jump * 4) + 55;
         this.x = this.startx;
         this.y = this.starty;
+        this.victory = false;
     }    
     //draw hero sprite on current x and y coord pos
     render() {
@@ -49,9 +50,15 @@ class hero {
                 this.reset();
             }
         }
+        //Check win here
+        
+        //Did Player x and y reach final tile?
+        if(this.y === 55) {
+            console.log('Win!');
+            this.victory = true;
+        }
+
     }
-                    //Check win here
-                        //Did Player x and y reach final tile?
                     //Render
                         //Draw player sprite on current x and y coord position
                     //handle keyboard input
@@ -88,7 +95,7 @@ const bug3 = new Enemy((-101*2.5), 83, 250);
 const bug4 = new Enemy(-101, 166, 250);
 const allEnemies = [];
 allEnemies.push(bug1, bug2, bug3, bug4);
-console.log(bug4);
+console.log();
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks

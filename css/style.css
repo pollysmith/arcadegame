@@ -1,3 +1,20 @@
 body {
     text-align: center;
 }
+
+.modal-bg {
+    position: relative;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    background: #ffffff;
+    transform: translate(-50%, -70%);
+
+}
+
+
+.modal-button {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+}
