@@ -28,13 +28,9 @@ var Engine = (function(global) {
     const modal = document.querySelector('.modal-bg');
     const replay = document.querySelector('.modal-button');
 
-    /*replay.addEventListener('click', function() {
+    function toggleModal() {
         modal.classList.toggle('hide');
-        player.reset();
-        player.victory = false;
-        win.requestAnimationFrame(main);
-    });*/
-    
+    }
 
 
     canvas.width = 505;
@@ -71,7 +67,7 @@ var Engine = (function(global) {
 
         if (player.victory === true) {
             win.cancelAnimationFrame(id);
-            modal.classList.toggle('hide');
+            toggleModal();
         }
         else{
             id = win.requestAnimationFrame(main);
@@ -174,6 +170,7 @@ var Engine = (function(global) {
         });
 
         player.render();
+
     }
 
     /* This function does nothing but it could have been a good place to
@@ -181,7 +178,6 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
     }
 
     /* Go ahead and load all of the images we know we're going to need to

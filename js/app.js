@@ -56,6 +56,7 @@ class hero {
         if(this.y === 55) {
             console.log('Win!');
             this.victory = true;
+            
         }
 
     }
