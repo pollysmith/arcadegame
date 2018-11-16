@@ -1,6 +1,10 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+Arcade Game Project
+This arcade game is developed to meet basic criteria of the Udacity course project. The goal is to move the hero to the river from the start, which is achieved by clicking on the arrow keys. The hero must avoid the moving enemy bug obstacles as touching the bug will reset the hero to the start.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+Table of Contents
+The hero will move in a direction when the player presses on a key. 
+
+When the player reaches the river (the goal), the "You Win!" modal will pop up with an option to replay the game.
