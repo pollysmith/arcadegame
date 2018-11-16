@@ -29,6 +29,7 @@ var Engine = (function(global) {
     const replay = document.querySelector('.modal-button');
 
     function toggleModal() {
+        console.log(modal)
         modal.classList.toggle('hide');
     }
 
@@ -67,19 +68,27 @@ var Engine = (function(global) {
 
         if (player.victory === true) {
             win.cancelAnimationFrame(id);
-            toggleModal();
+            console.log(modal.classList.toggle('hide', false))
         }
         else{
             id = win.requestAnimationFrame(main);
         }
         
     }
+
+    replay.addEventListener('click', function(){
+        modal.classList.toggle('hide')
+        player.reset()
+        player.victory = false
+        win.requestAnimationFrame(main)
+    })
     
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
      * game loop.
      */
     function init() {
+        modal.classList.toggle('hide',true)
         reset();
         lastTime = Date.now();
         main();
